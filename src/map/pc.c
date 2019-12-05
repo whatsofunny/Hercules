@@ -5785,8 +5785,6 @@ static int pc_setpos(struct map_session_data *sd, unsigned short map_index, int 
 		party->send_dot_remove(sd); //minimap dot fix [Kevin]
 		guild->send_dot_remove(sd);
 		bg->send_dot_remove(sd);
-		if (sd->regen.state.gc)
-			sd->regen.state.gc = 0;
 		// make sure vending is allowed here
 		if (sd->state.vending && map->list[m].flag.novending) {
 			clif->message (sd->fd, msg_sd(sd,276)); // "You can't open a shop on this map"
@@ -5855,16 +5853,17 @@ static int pc_setpos(struct map_session_data *sd, unsigned short map_index, int 
 		//Tag player for rewarping after map-loading is done. [Skotlex]
 		sd->state.rewarp = 1;
 
+	if (sd->status.guild_id > 0
+		&& (map->list[m].flag.gvg_castle == 1 || map->list[sd->bl.m].flag.gvg_castle == 1)) {
+		// If coming from or going to a guild castle, recalculate HP/SP regen [Hemagx]
+		status->calc_regen(&sd->bl, &sd->battle_status, &sd->regen);
+		status->calc_regen_rate(&sd->bl, &sd->regen, &sd->sc);
+	}
+
 	sd->mapindex = map_index;
 	sd->bl.m = m;
 	sd->bl.x = sd->ud.to_x = x;
 	sd->bl.y = sd->ud.to_y = y;
-
-	if( sd->status.guild_id > 0 && map->list[m].flag.gvg_castle ) { // Increased guild castle regen [Valaris]
-		struct guild_castle *gc = guild->mapindex2gc(sd->mapindex);
-		if(gc && gc->guild_id == sd->status.guild_id)
-			sd->regen.state.gc = 1;
-	}
 
 	if( sd->status.pet_id > 0 && sd->pd && sd->pd->pet.intimate > 0 ) {
 		sd->pd->bl.m = m;
