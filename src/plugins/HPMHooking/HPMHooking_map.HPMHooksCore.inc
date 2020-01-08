@@ -2,7 +2,7 @@
  * This file is part of Hercules.
  * http://herc.ws - http://github.com/HerculesWS/Hercules
  *
- * Copyright (C) 2013-2019  Hercules Dev Team
+ * Copyright (C) 2013-2020  Hercules Dev Team
  *
  * Hercules is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -2674,6 +2674,8 @@ struct {
 	struct HPMHookPoint *HP_guild_get_alliance_count_post;
 	struct HPMHookPoint *HP_guild_castle_reconnect_sub_pre;
 	struct HPMHookPoint *HP_guild_castle_reconnect_sub_post;
+	struct HPMHookPoint *HP_guild_castle_owner_change_foreach_pre;
+	struct HPMHookPoint *HP_guild_castle_owner_change_foreach_post;
 	struct HPMHookPoint *HP_gstorage_ensure_pre;
 	struct HPMHookPoint *HP_gstorage_ensure_post;
 	struct HPMHookPoint *HP_gstorage_init_pre;
@@ -6404,8 +6406,22 @@ struct {
 	struct HPMHookPoint *HP_status_calc_elemental__post;
 	struct HPMHookPoint *HP_status_calc_misc_pre;
 	struct HPMHookPoint *HP_status_calc_misc_post;
+	struct HPMHookPoint *HP_status_calc_regen_pc_pre;
+	struct HPMHookPoint *HP_status_calc_regen_pc_post;
+	struct HPMHookPoint *HP_status_calc_regen_homunculus_pre;
+	struct HPMHookPoint *HP_status_calc_regen_homunculus_post;
+	struct HPMHookPoint *HP_status_calc_regen_mercenary_pre;
+	struct HPMHookPoint *HP_status_calc_regen_mercenary_post;
+	struct HPMHookPoint *HP_status_calc_regen_elemental_pre;
+	struct HPMHookPoint *HP_status_calc_regen_elemental_post;
 	struct HPMHookPoint *HP_status_calc_regen_pre;
 	struct HPMHookPoint *HP_status_calc_regen_post;
+	struct HPMHookPoint *HP_status_calc_regen_rate_pc_pre;
+	struct HPMHookPoint *HP_status_calc_regen_rate_pc_post;
+	struct HPMHookPoint *HP_status_calc_regen_rate_elemental_pre;
+	struct HPMHookPoint *HP_status_calc_regen_rate_elemental_post;
+	struct HPMHookPoint *HP_status_calc_regen_rate_homunculus_pre;
+	struct HPMHookPoint *HP_status_calc_regen_rate_homunculus_post;
 	struct HPMHookPoint *HP_status_calc_regen_rate_pre;
 	struct HPMHookPoint *HP_status_calc_regen_rate_post;
 	struct HPMHookPoint *HP_status_check_skilluse_pre;
@@ -9511,6 +9527,8 @@ struct {
 	int HP_guild_get_alliance_count_post;
 	int HP_guild_castle_reconnect_sub_pre;
 	int HP_guild_castle_reconnect_sub_post;
+	int HP_guild_castle_owner_change_foreach_pre;
+	int HP_guild_castle_owner_change_foreach_post;
 	int HP_gstorage_ensure_pre;
 	int HP_gstorage_ensure_post;
 	int HP_gstorage_init_pre;
@@ -13241,8 +13259,22 @@ struct {
 	int HP_status_calc_elemental__post;
 	int HP_status_calc_misc_pre;
 	int HP_status_calc_misc_post;
+	int HP_status_calc_regen_pc_pre;
+	int HP_status_calc_regen_pc_post;
+	int HP_status_calc_regen_homunculus_pre;
+	int HP_status_calc_regen_homunculus_post;
+	int HP_status_calc_regen_mercenary_pre;
+	int HP_status_calc_regen_mercenary_post;
+	int HP_status_calc_regen_elemental_pre;
+	int HP_status_calc_regen_elemental_post;
 	int HP_status_calc_regen_pre;
 	int HP_status_calc_regen_post;
+	int HP_status_calc_regen_rate_pc_pre;
+	int HP_status_calc_regen_rate_pc_post;
+	int HP_status_calc_regen_rate_elemental_pre;
+	int HP_status_calc_regen_rate_elemental_post;
+	int HP_status_calc_regen_rate_homunculus_pre;
+	int HP_status_calc_regen_rate_homunculus_post;
 	int HP_status_calc_regen_rate_pre;
 	int HP_status_calc_regen_rate_post;
 	int HP_status_check_skilluse_pre;

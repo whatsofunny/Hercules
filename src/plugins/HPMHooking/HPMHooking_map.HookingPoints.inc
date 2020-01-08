@@ -2,7 +2,7 @@
  * This file is part of Hercules.
  * http://herc.ws - http://github.com/HerculesWS/Hercules
  *
- * Copyright (C) 2013-2019  Hercules Dev Team
+ * Copyright (C) 2013-2020  Hercules Dev Team
  *
  * Hercules is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1370,6 +1370,7 @@ struct HookingPointData HookingPoints[] = {
 	{ HP_POP(guild->check_member, HP_guild_check_member) },
 	{ HP_POP(guild->get_alliance_count, HP_guild_get_alliance_count) },
 	{ HP_POP(guild->castle_reconnect_sub, HP_guild_castle_reconnect_sub) },
+	{ HP_POP(guild->castle_owner_change_foreach, HP_guild_castle_owner_change_foreach) },
 /* guild_storage_interface */
 	{ HP_POP(gstorage->ensure, HP_gstorage_ensure) },
 	{ HP_POP(gstorage->init, HP_gstorage_init) },
@@ -3274,7 +3275,14 @@ struct HookingPointData HookingPoints[] = {
 	{ HP_POP(status->calc_mercenary_, HP_status_calc_mercenary_) },
 	{ HP_POP(status->calc_elemental_, HP_status_calc_elemental_) },
 	{ HP_POP(status->calc_misc, HP_status_calc_misc) },
+	{ HP_POP(status->calc_regen_pc, HP_status_calc_regen_pc) },
+	{ HP_POP(status->calc_regen_homunculus, HP_status_calc_regen_homunculus) },
+	{ HP_POP(status->calc_regen_mercenary, HP_status_calc_regen_mercenary) },
+	{ HP_POP(status->calc_regen_elemental, HP_status_calc_regen_elemental) },
 	{ HP_POP(status->calc_regen, HP_status_calc_regen) },
+	{ HP_POP(status->calc_regen_rate_pc, HP_status_calc_regen_rate_pc) },
+	{ HP_POP(status->calc_regen_rate_elemental, HP_status_calc_regen_rate_elemental) },
+	{ HP_POP(status->calc_regen_rate_homunculus, HP_status_calc_regen_rate_homunculus) },
 	{ HP_POP(status->calc_regen_rate, HP_status_calc_regen_rate) },
 	{ HP_POP(status->check_skilluse, HP_status_check_skilluse) },
 	{ HP_POP(status->check_visibility, HP_status_check_visibility) },
