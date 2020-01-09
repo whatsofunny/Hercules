@@ -7449,6 +7449,12 @@ static const struct battle_data {
 	{ "hit_max_limit",                      &battle_config.hit_max,                         SHRT_MAX, 1,    INT_MAX,        },
 	{ "autoloot_adjust",                    &battle_config.autoloot_adjust,                 0,      0,      1,              },
 	{ "hom_bonus_exp_from_master",          &battle_config.hom_bonus_exp_from_master,      10,      0,      100,            },
+	{ "elem_natural_heal_hp",               &battle_config.elem_natural_heal_hp,           6000, NATURAL_HEAL_INTERVAL, INT_MAX,},
+	{ "elem_natural_heal_sp",               &battle_config.elem_natural_heal_sp,           8000, NATURAL_HEAL_INTERVAL, INT_MAX,},
+	{ "hom_natural_heal_hp",                &battle_config.elem_natural_heal_hp,           2000, NATURAL_HEAL_INTERVAL, INT_MAX,},
+	{ "hom_natural_heal_sp",                &battle_config.elem_natural_heal_sp,           4000, NATURAL_HEAL_INTERVAL, INT_MAX,},
+	{ "merc_natural_heal_hp",               &battle_config.merc_natural_heal_hp,           6000, NATURAL_HEAL_INTERVAL, INT_MAX,},
+	{ "merc_natural_heal_sp",               &battle_config.merc_natural_heal_sp,           8000, NATURAL_HEAL_INTERVAL, INT_MAX,},
 };
 
 static bool battle_set_value_sub(int index, int value)
